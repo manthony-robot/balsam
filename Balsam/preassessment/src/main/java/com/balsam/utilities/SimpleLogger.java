@@ -6,7 +6,7 @@ import java.util.Date;
 public class SimpleLogger {
     // Enum for log levels
     public enum LogLevel {
-        INFO, ERROR, DEBUG, WARN
+        INFO
     }
 
     // Method to log messages
@@ -15,20 +15,8 @@ public class SimpleLogger {
         System.out.println(timestamp + " [" + Thread.currentThread().getName() + "] " + level + " - " + message);
     }
 
-    // Convenience methods
+    // Info log level
     public static void info(String message) {
         log(LogLevel.INFO, message);
-    }
-
-    public static void error(String message) {
-        log(LogLevel.ERROR, message);
-    }
-
-    public static void debug(String message) {
-        log(LogLevel.DEBUG, message);
-    }
-
-    public static void warn(String message) {
-        log(LogLevel.WARN, message);
     }
 }

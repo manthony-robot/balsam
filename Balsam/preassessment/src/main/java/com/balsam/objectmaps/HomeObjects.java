@@ -17,4 +17,8 @@ public class HomeObjects {
     public WebElement bannerImage = driver.findElement(By.xpath("//img[contains(@src, 'balsamhilllogo.png')]"));
     public WebElement closeFooterBannerBtn = driver.findElement(By.xpath("//button[@data-testid='close-cookie-banner']"));
 
+    // public WebElement returnElement(String identifierString){
+    //     WebElement element = driver.findElement(By.xpath(identifierString));
+    //     return element;
+    // }
 }

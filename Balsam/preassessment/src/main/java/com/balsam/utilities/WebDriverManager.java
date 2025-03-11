@@ -5,7 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.balsam.constants.Constants;
 
+// This class is the unified source for webdriver across classes
 public class WebDriverManager {
+    
     private static WebDriver driver;
 
     // Private constructor to prevent direct instantiation

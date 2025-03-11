@@ -34,12 +34,11 @@ public class ResultsPage {
             SimpleLogger.info((driver.getCurrentUrl()));
             ResultsObjects resultsObjects = new ResultsObjects();
             
-            Thread.sleep(2500);
             wait.until(ExpectedConditions.visibilityOf(resultsObjects.productsHeader));
             SimpleLogger.info("Successfully navigated to Balsam Hill results page");
             
             // Select the third option from the search result
-            WebElement imageResult = driver.findElement(By.xpath(resultsObjects.gridDiv + "//following::img[" + orderResult + "]"));
+            WebElement imageResult = driver.findElement(By.xpath("(" + resultsObjects.gridDiv + "//following::img[@alt='Add to favorites'])[" + orderResult + "]//preceding::img[1]"));
             imageResult.click();
             Thread.sleep(2500);
 
