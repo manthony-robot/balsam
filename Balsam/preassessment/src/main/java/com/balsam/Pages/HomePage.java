@@ -1,7 +1,9 @@
 package com.balsam.pages;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,14 +37,18 @@ public class HomePage {
                 SimpleLogger.info("Footer banner is closed");
             }
             
-            // Verify search box
+            // Verify and populate search box
             wait.until(ExpectedConditions.visibilityOf(homeObjects.searchField));
-            homeObjects.searchField.sendKeys("Christmas Tree");
             homeObjects.searchField.click();
+            homeObjects.searchField.sendKeys("Christmas Tree");
             SimpleLogger.info("Search for Christmas Tree");
-            
+            homeObjects.searchField.sendKeys(Keys.ENTER);
+            wait.until(ExpectedConditions.textToBePresentInElementValue(homeObjects.searchField, ""));
+
+        } catch (NoSuchElementException e){
+            System.out.println("No Such Element Exception: " + e);
         } catch (Exception e){
             System.out.println("Error: " + e);
-        }
+        } 
     }
 }
